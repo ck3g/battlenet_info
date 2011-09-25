@@ -1,13 +1,17 @@
 #Battle.Net info parser
 	Parses StarCraft2 player info
 
-#using
+##install
+		gem install battlenet_info
+
+##using
+		require 'battlenet_info'
 		player = BattleNetInfo.new('http://eu.battle.net/sc2/en/profile/267901/1/Zakk/')
 		player.download_data
 
 		# call other methods
 
-#methods list
+##methods list
 		player.valid_url?
 
 		player.server
