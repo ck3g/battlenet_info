@@ -143,4 +143,21 @@ class BattleNetInfoTest < Test::Unit::TestCase
 		assert_equal expected, @zakk.portrait_html_style(new_path)
 	end
 
+	def test_to_hash_convertation
+		points, wins = @zakk.stats
+		expected_hash = {
+			:server => @zakk.server,
+			:player_name => @zakk.player_name,
+			:achievement_points => @zakk.achievement_points,
+			:race => @zakk.race,
+			:points => points,
+			:wins => wins,
+			:rank => @zakk.rank,
+			:league => @zakk.league
+		}
+
+		assert_equal expected_hash, @zakk.to_hash
+
+	end
+
 end

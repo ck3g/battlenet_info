@@ -79,6 +79,23 @@ class BattleNetInfo
 		match_data[:picture_style].sub('/sc2/static/local-common/images/sc2/portraits/', new_path)
 	end
 
+	def to_hash
+		points, wins = self.stats
+
+		player_data = {
+			:server => self.server,
+			:player_name => self.player_name,
+			:achievement_points => self.achievement_points,
+			:race => self.race,
+			:points => points,
+			:wins => wins,
+			:rank => self.rank,
+			:league => self.league
+		}
+
+		player_data
+	end
+
 	private
 
 	def download_profile_content

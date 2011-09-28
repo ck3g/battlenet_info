@@ -9,7 +9,6 @@ Starcraft 2 gaming account. The project is still raw so please post issues or se
 ##usage
 	require 'battlenet_info'
 	player = BattleNetInfo.new('http://eu.battle.net/sc2/en/profile/267901/1/Zakk/')
-	player.download_data
 
 	# call other methods
 
@@ -29,6 +28,10 @@ Starcraft 2 gaming account. The project is still raw so please post issues or se
 	player.rank
 
 	player.league
+
+	# combines player data to hash
+	# use methods: server, player_name, achievement_points, race, points, wins, rank, league
+	player.to_hash
 
 	# returns the style attribute fragment responsible for displaying player's portrait 
 	# (hack for blizzard portraits as sprites)
