@@ -116,13 +116,13 @@ class BattleNetInfoTest < Test::Unit::TestCase
   def test_getting_player_rank
     assert_equal 71, @zakk.rank
 
-    assert_equal 159, @strelok.rank
+    assert_equal 160, @strelok.rank
 
     assert_equal 0, @silent.rank
 
-    assert_equal 4, @kas.rank
+    assert_equal 5, @kas.rank
 
-    assert_equal 35, @dimaga.rank
+    assert_equal 36, @dimaga.rank
   end
 
   def test_getting_player_stats

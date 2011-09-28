@@ -41,7 +41,6 @@ class BattleNetInfo
   end
 
   def achievement_points
-    download_profile_content if self.profile_content.empty?
     match_data = /<h3>(?<achievement_points>\d+)<\/h3>/i.match self.profile_content
     
     match_data[:achievement_points].to_i
@@ -93,22 +92,22 @@ class BattleNetInfo
       :rank => self.rank,
       :league => self.league
     }
-
-    player_data
   end
 
   private
 
   def download_profile_content
-    response = Net::HTTP.get_response(URI.parse(@profile_url)) if self.valid_url?
-    raise ProfileNotFound.new(EXCEPTION_MESSAGE) unless response.is_a? Net::HTTPOK
-    @profile_content = response.body
+    @profile_content = get_content(@profile_url)
   end
 
   def download_ladder_content
-    response = Net::HTTP.get_response(URI.parse(@ladder_url)) if self.valid_url?
+    @ladder_content = get_content(@ladder_url)
+  end
+
+  def get_content(url)
+    response = Net::HTTP.get_response(URI.parse(url)) if self.valid_url?
     raise ProfileNotFound.new(EXCEPTION_MESSAGE) unless response.is_a? Net::HTTPOK
-    @ladder_content = response.body
+    response.body
   end
 
 end
