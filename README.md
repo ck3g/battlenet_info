@@ -1,32 +1,36 @@
-#Battle.Net info parser
-	Parses StarCraft2 player info
+# Battle.Net info parser
+------------------------
+The Battle.net Info Parser is a gem that wraps the process of retrieving in-game statistics of a 
+Starcraft 2 gaming account. The project is still raw so please post issues or send them to kalastiuz@gmail.com
 
-##install
-		gem install battlenet_info
+##installation
+	gem install battlenet_info
 
-##using
-		require 'battlenet_info'
-		player = BattleNetInfo.new('http://eu.battle.net/sc2/en/profile/267901/1/Zakk/')
-		player.download_data
+##usage
+	require 'battlenet_info'
+	player = BattleNetInfo.new('http://eu.battle.net/sc2/en/profile/267901/1/Zakk/')
+	player.download_data
 
-		# call other methods
+	# call other methods
 
-##methods list
-		player.valid_url?
+##methods
+	player.valid_url?
 
-		player.server
+	player.server
 
-		player.player_name
+	player.player_name
 
-		player.achievement_points
+	player.achievement_points
 
-		player.race
+	player.race
 
-		points, wins = player.stats
+	points, wins = player.stats
 
-		player.rank
+	player.rank
 
-		player.league
+	player.league
 
-		player.portrait_html_style(path_to_portraits_images) # gets html style attribute for display user pics
+	# returns the style attribute fragment responsible for displaying player's portrait 
+	# (hack for blizzard portraits as sprites)
+	player.portrait_html_style(path_to_portraits_images)
 		
