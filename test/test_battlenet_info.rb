@@ -63,109 +63,83 @@ class BattleNetInfoTest < Test::Unit::TestCase
 	end
 
 	def test_getting_achievement_points
-		@zakk.download_data
 		assert_equal 2450, @zakk.achievement_points
 
-		@strelok.download_data
 		assert_equal 930, @strelok.achievement_points
 
-		@silent.download_data
 		assert_equal 3630, @silent.achievement_points
 
-		@kas.download_data
 		assert_equal 1150, @kas.achievement_points
 
-		@dimaga.download_data
 		assert_equal 605, @dimaga.achievement_points
 	end
 
 	def test_getting_player_prefered_race
-		@zakk.download_data
 		assert_equal 'terran', @zakk.race
 
-		@strelok.download_data
 		assert_equal 'terran', @strelok.race
 
-		@silent.download_data
 		assert_equal 'random', @silent.race
 
 		zero = BattleNetInfo.new 'http://eu.battle.net/sc2/en/profile/178390/1/Zero/'
-		zero.download_data
 		assert_equal 'protoss', zero.race
 
-		@dimaga.download_data
 		assert_equal 'zerg', @dimaga.race
 	end
 
 	def test_getting_player_league
 		
-		@zakk.download_data
 		assert_equal 'platinum_1', @zakk.league
 
-		@strelok.download_data
 		assert_equal 'grandmaster_1', @strelok.league
 
 		neo = BattleNetInfo.new 'http://kr.battle.net/sc2/ko/profile/332012/1/NeoFantasy/'
-		neo.download_data
 		assert_equal 'platinum_2', neo.league
 
 		zero = BattleNetInfo.new 'http://eu.battle.net/sc2/en/profile/178390/1/Zero/'
-		zero.download_data
 		assert_equal 'grandmaster_4', zero.league
 
-		@dimaga.download_data
 		assert_equal 'grandmaster_3', @dimaga.league
 	end
 
 	def test_getting_player_rank
-		@zakk.download_data
 		assert_equal 70, @zakk.rank
 
-		@strelok.download_data
-		assert_equal 132, @strelok.rank
+		assert_equal 154, @strelok.rank
 
-		@silent.download_data
 		assert_equal 0, @silent.rank
 
-		@kas.download_data
-		assert_equal 13, @kas.rank
+		assert_equal 3, @kas.rank
 
-		@dimaga.download_data
-		assert_equal 26, @dimaga.rank
+		assert_equal 32, @dimaga.rank
 	end
 
 	def test_getting_player_stats
-		@zakk.download_data
 		points, wins = @zakk.stats
 		assert_equal 30, points
 		assert_equal 2, wins
 
-		@strelok.download_data
 		points, wins = @strelok.stats
-		assert_equal 918, points
-		assert_equal 77, wins
+		assert_equal 936, points
+		assert_equal 78, wins
 
-		@silent.download_data
 		points, wins = @silent.stats
 		assert_equal 0, points
 		assert_equal 0, wins
 
-		@kas.download_data
 		points, wins = @kas.stats
-		assert_equal 1176, points
-		assert_equal 823, wins
+		assert_equal 1277, points
+		assert_equal 849, wins
 
-		@dimaga.download_data
 		points, wins = @dimaga.stats
-		assert_equal 1105, points
-		assert_equal 150, wins
+		assert_equal 1127, points
+		assert_equal 152, wins
 
 	end
 
 	def test_getting_user_pic_path
-		@zakk.download_data
 		new_path = 'new/path/to/image/'
-		expected  = "style=\"background: url('#{new_path}0-90.jpg?v30') -450px -90px no-repeat; width: 90px; height: 90px;"
+		expected  = "style=\"background: url('#{new_path}0-90.jpg?v32') -450px -90px no-repeat; width: 90px; height: 90px;"
 		assert_equal expected, @zakk.portrait_html_style(new_path)
 	end
 
