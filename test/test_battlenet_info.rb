@@ -38,7 +38,7 @@ class BattleNetInfoTest < Test::Unit::TestCase
   end
 
   def test_initializing_new_object
-    @infos.each do |info| 
+    @infos.each do |info|
       assert info.instance_of? BattleNetInfo
     end
   end
@@ -67,7 +67,7 @@ class BattleNetInfoTest < Test::Unit::TestCase
   def test_get_player_name
     assert_equal 'Zakk', @zakk.player_name
     assert_equal 'imbaStrelok', @strelok.player_name
-    assert_equal 'SilentWeRRa', @silent.player_name 
+    assert_equal 'SilentWeRRa', @silent.player_name
     assert_equal 'EmpireKas', @kas.player_name
     assert_equal 'mTwDIMAGA', @dimaga.player_name
 
@@ -99,7 +99,7 @@ class BattleNetInfoTest < Test::Unit::TestCase
   end
 
   def test_getting_player_league
-    
+
     assert_equal 'platinum_1', @zakk.league
 
     assert_equal 'grandmaster_1', @strelok.league

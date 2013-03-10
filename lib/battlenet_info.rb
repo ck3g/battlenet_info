@@ -30,25 +30,25 @@ class BattleNetInfo
 
   def server
     match_data = /http:\/\/(?<server>\w+)/i.match @profile_url
-    
+
     match_data[:server]
   end
 
   def player_name
     match_data = /profile\/\d+\/\d\/(?<name>\w+)/i.match @profile_url
-    
+
     match_data[:name]
   end
 
   def achievement_points
     match_data = /<h3>(?<achievement_points>\d+)<\/h3>/i.match self.profile_content
-    
+
     match_data[:achievement_points].to_i
   end
 
   def race
     match_data = /class=\Wrace-(?<race>\w+)\W/i.match self.profile_content
-    
+
     match_data[:race]
   end
 
