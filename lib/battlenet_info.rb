@@ -19,11 +19,6 @@ class BattleNetInfo
     @ladder_content ||= download_ladder_content
   end
 
-  # <b>DEPRECATED:</b> Now calls from each method if needed
-  def download_data
-    warn "[DEPRECATION] `download_data` is deprecated. Now calls from each method if needed."
-  end
-
   def valid_url?
     (@profile_url =~ /http:\/\/\w+\.battle.net\/sc2\/\w+\/profile\/\d+\/\d\/\w+/i) != nil
   end
