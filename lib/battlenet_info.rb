@@ -5,6 +5,8 @@ class BattleNetInfo
 
   EXCEPTION_MESSAGE = 'Profile not found or Battle.Net temporary unavailable'
 
+  attr_reader :profile_url, :ladder_url
+
   def initialize(url)
     @profile_url = url
     splitter = '/' unless @profile_url[-1, 1] == '/'
@@ -47,6 +49,7 @@ class BattleNetInfo
     match_data[:race]
   end
 
+  # TODO: calculate loses again
   def stats
     match_data = /<div\s+class=\Wtooltip-title\W>#{self.player_name}<\/div>[\n\t\s]+<strong>[\w\s]+\W<\/strong>\s*\d+<br\s*\/>[\t\n\s]+<strong>[\w\s]+\W\s*<\/strong>\s*\w+\s*<\/div>[\t\n\s]+<\/td>[\t\n\s]+<td\sclass=\Walign-center\W>(?<points>\d+)<\/td>[\t\n\s]+<td\sclass=\Walign-center\W>(?<wins>\d+)<\/td>/mi.match self.ladder_content
 
@@ -71,7 +74,7 @@ class BattleNetInfo
   def portrait_html_style(new_path)
     match_data = /<span\s+class=\Wicon-frame\s+\W[\s\t\n]+(?<picture_style>\w+\=[\w\s\W]+portraits[\w\s\W]+90px;)\W>[\t\n\s]+<\/span>/im.match self.profile_content
 
-    match_data[:picture_style].sub('/sc2/static/local-common/images/sc2/portraits/', new_path)
+    match_data[:picture_style].sub('http://media.blizzard.com/sc2/portraits/', new_path)
   end
 
   def to_hash
