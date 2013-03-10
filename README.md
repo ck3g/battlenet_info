@@ -1,4 +1,4 @@
-# Battle.Net info parser
+# Battle.Net info parser [![Build Status](https://travis-ci.org/ck3g/battlenet_info.png?branch=master)](https://travis-ci.org/ck3g/battlenet_info)
 ------------------------
 The Battle.net Info Parser is a gem that wraps the process of retrieving in-game statistics of a
 Starcraft 2 gaming account. The project is still raw so please post issues or send them to kalastiuz@gmail.com
