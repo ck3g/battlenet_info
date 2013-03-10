@@ -1,6 +1,6 @@
 # Battle.Net info parser
 ------------------------
-The Battle.net Info Parser is a gem that wraps the process of retrieving in-game statistics of a 
+The Battle.net Info Parser is a gem that wraps the process of retrieving in-game statistics of a
 Starcraft 2 gaming account. The project is still raw so please post issues or send them to kalastiuz@gmail.com
 
 ##installation
@@ -33,7 +33,7 @@ Starcraft 2 gaming account. The project is still raw so please post issues or se
 	# use methods: server, player_name, achievement_points, race, points, wins, rank, league
 	player.to_hash
 
-	# returns the style attribute fragment responsible for displaying player's portrait 
+	# returns the style attribute fragment responsible for displaying player's portrait
 	# (hack for blizzard portraits as sprites)
 	player.portrait_html_style(path_to_portraits_images)
-		
+
