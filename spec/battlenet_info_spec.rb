@@ -13,6 +13,8 @@ describe BattleNetInfo do
     @url_wo_slash = "http://eu.battle.net/sc2/en/profile/498165/1/EmpireKas"
     @kas = BattleNetInfo.new @kas_url
 
+    @zakk = BattleNetInfo.new "http://eu.battle.net/sc2/en/profile/267901/1/Zakk/"
+
     @unexisted_url = "http://eu.battle.net/sc2/en/profile/498165/1/Unknown/"
     @unexisted = BattleNetInfo.new @unexisted_url
   end
@@ -104,10 +106,19 @@ describe BattleNetInfo do
   end
 
   describe "#league" do
-    it "returns player league" do
-      pending "Profile page changed"
-      VCR.use_cassette("kas_profile") do
-        @kas.league.should eq 503
+    context "when was ranked" do
+      it "returns player league" do
+        VCR.use_cassette("kas_profile") do
+          @kas.league.should eq "grandmaster_4"
+        end
+      end
+    end
+
+    context "when not ranked" do
+      it "dont know else" do
+        VCR.use_cassette("zakk_profile") do
+          @zakk.league.should eq "none_4"
+        end
       end
     end
   end

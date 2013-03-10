@@ -1,4 +1,5 @@
 require 'net/http'
+require "nokogiri"
 require 'exceptions.rb'
 
 class BattleNetInfo
@@ -65,8 +66,9 @@ class BattleNetInfo
   end
 
   def league
-    expr = /badge-(?<league>\w+)\sbadge-medium-(?<top>\d+)\W>\s+<\/span>\s+<\/a>\s+<div\sid=\Wbest-team-1/im
-    match_data = expr.match self.profile_content
+    html_doc = Nokogiri::HTML(profile_content)
+    badge_data = html_doc.at_css("#season-snapshot").children.css(".badge-item").first.at_css("span.badge")[:class]
+    match_data = /badge-(?<league>\w+)\sbadge-medium-(?<top>\d+)/.match badge_data
 
     "#{match_data[:league]}_#{match_data[:top]}"
   end
