@@ -45,6 +45,7 @@ class BattleNetInfo
   end
 
   def race
+    raise RaceTemporaryUnvailable
     match_data = /class=\Wrace-(?<race>\w+)\W/i.match self.profile_content
 
     match_data[:race]
