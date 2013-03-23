@@ -128,7 +128,7 @@ describe BattleNetInfo do
       VCR.use_cassette("kas_profile") do
 
         new_path = 'new/path/to/image/'
-        expected  = "style=\"background: url('#{new_path}2-90.jpg') -270px 0px no-repeat; width: 90px; height: 90px;"
+        expected  = "background: url('#{new_path}2-90.jpg') -270px 0px no-repeat; width: 90px; height: 90px;"
         @kas.portrait_html_style(new_path).should eq expected
       end
     end

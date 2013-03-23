@@ -77,7 +77,7 @@ class BattleNetInfo
   def portrait_html_style(new_path)
     match_data = /<span\s+class=\Wicon-frame\s+\W[\s\t\n]+(?<picture_style>\w+\=[\w\s\W]+portraits[\w\s\W]+90px;)\W>[\t\n\s]+<\/span>/im.match self.profile_content
 
-    match_data[:picture_style].sub('http://media.blizzard.com/sc2/portraits/', new_path)
+    match_data[:picture_style].sub('http://media.blizzard.com/sc2/portraits/', new_path).sub("style\=\"", "")
   end
 
   def to_hash
@@ -87,7 +87,7 @@ class BattleNetInfo
       :server => self.server,
       :player_name => self.player_name,
       :achievement_points => self.achievement_points,
-      :race => self.race,
+      # :race => self.race,
       :points => points,
       :wins => wins,
       :rank => self.rank,

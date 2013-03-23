@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'battlenet_info'
-  s.version     = '0.2.0'
+  s.version     = '0.2.1'
   s.date        = '2013-03-10'
   s.summary     = "Battle.Net info"
   s.description = "A simple Battle.Net info parser gem"
