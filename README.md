@@ -7,35 +7,41 @@ Starcraft 2 gaming account. The project is still raw so please post issues or se
 	gem install battlenet_info
 
 ##usage
-	require 'battlenet_info'
-	player = BattleNetInfo.new('http://eu.battle.net/sc2/en/profile/267901/1/Zakk/')
 
-	# call other methods
+```ruby
+  require 'battlenet_info'
+  player = BattleNetInfo.new('http://eu.battle.net/sc2/en/profile/267901/1/Zakk/')
+
+  # call other methods
+```
 
 ##methods
-	player.valid_url?
 
-	player.server
+```ruby
+  player.valid_url?
 
-	player.player_name
+  player.server
 
-	player.achievement_points
+  player.player_name
 
-	player.race
+  player.achievement_points
 
-	points, wins = player.stats
+  player.race
 
-	player.rank
+  points, wins = player.stats
 
-	player.league
+  player.rank
 
-	# combines player data to hash
-	# use methods: server, player_name, achievement_points, race, points, wins, rank, league
-	player.to_hash
+  player.league
 
-	# returns the style attribute fragment responsible for displaying player's portrait
-	# (hack for blizzard portraits as sprites)
-	player.portrait_html_style(path_to_portraits_images)
+  # combines player data to hash
+  # use methods: server, player_name, achievement_points, race, points, wins, rank, league
+  player.to_hash
+
+  # returns the style attribute fragment responsible for displaying player's portrait
+  # (hack for blizzard portraits as sprites)
+  player.portrait_html_style(path_to_portraits_images)
+```
 
 ## LICENSE
 
