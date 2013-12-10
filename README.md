@@ -1,3 +1,6 @@
+## Abandoned in favor of [bnet_scraper gem](https://github.com/agoragames/bnet_scraper)
+
+
 # Battle.Net info parser [![Build Status](https://travis-ci.org/ck3g/battlenet_info.png?branch=master)](https://travis-ci.org/ck3g/battlenet_info)
 ------------------------
 The Battle.net Info Parser is a gem that wraps the process of retrieving in-game statistics of a
